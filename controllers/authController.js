@@ -84,19 +84,19 @@ require("dotenv/config");
         if (isPasswordValid) {
           let token, role, loggedInUser;
           if (user) {
-            token = jwt.sign({ id: user._id, role: user.role }, process.env.jwtsecret, {
+            token = jwt.sign({ id: user._id, role: user.role }, "mysupersecretkey", {
               expiresIn: "2d",
             });
             role = user.role;
             loggedInUser = user;
           } else if (doctor) {
-            token = jwt.sign({ id: doctor._id, role: doctor.role }, process.env.jwtsecret, {
+            token = jwt.sign({ id: doctor._id, role: doctor.role }, "mysupersecretkey", {
               expiresIn: "2d",
             });
             role = doctor.role;
             loggedInUser = doctor;
           } else if (nurse) {
-            token = jwt.sign({ id: nurse._id, role: nurse.role }, process.env.jwtsecret, {
+            token = jwt.sign({ id: nurse._id, role: nurse.role }, "mysupersecretkey", {
               expiresIn: "2d",
             });
             role = nurse.role;
